@@ -16,14 +16,23 @@
     <title>We are the champions</title>
   </head>
   <body>
-    <img src="./images/freddie.png" alt="Celebration !!" />
-    <h1>We are the champions</h1>
-    <div class="form">
-      <input type="text" placeholder="Write your endorsement here" />
+    <div class="container">
+      <img src="./images/freddie.png" alt="Celebration !!" />
+      <h1>We are the champions</h1>
+
+      <textarea
+        placeholder="Write your endorsement here"
+        name=""
+        id="text-area"
+        cols="30"
+        rows="10"
+      ></textarea>
+
+      <button id="publish-btn">Publish</button>
+      <h2>- Endorsements -</h2>
+      <ul id="endorsement-list"></ul>
     </div>
 
-    <button>Publish</button>
-    <h2>- Endorsements -</h2>
     <script src="index.js"></script>
   </body>
 </html>

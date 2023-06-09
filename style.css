@@ -1,14 +1,18 @@
 html,
 body {
   background-color: #1b1924;
-  /* min-width: 320px;
-  max-width: 420px; */
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+  min-width: 320px;
+  max-width: 420px;
+
   font-family: "Josefin Sans", sans-serif;
   margin: 0;
   padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 img {
@@ -21,39 +25,26 @@ h1,
 h2 {
   color: #fff;
 }
-.form {
-  display: flex;
-  justify-content: start;
-  align-items: start;
+textarea {
+  outline: none;
+  font-family: "Inter", sans-serif;
   margin: 15px auto;
-  border: none;
+  border: 1px solid #444059;
   border-radius: 5px;
-  height: 120px;
-  width: 82%;
+  height: 130px;
+  width: 78%;
   background-color: #444059;
   word-wrap: break-word;
-}
-input {
-  border-radius: 5px;
-  border: none;
-  font-size: 15px;
-  background-color: #444059;
-  outline: none;
-  width: 70%;
-  padding: 5px;
-  font-family: "Inter", sans-serif;
-}
-
-input:placeholder {
-  height: 0;
-  top: 5px;
+  padding: 10px;
+  color: white;
 }
 
 button {
+  font-size: 18px;
   font-weight: bold;
   border: none;
   border-radius: 5px;
-  width: 82%;
+  width: 83%;
   background-color: #28a9f1;
   color: #04131c;
   padding: 10px;
