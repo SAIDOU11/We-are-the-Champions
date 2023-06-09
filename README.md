@@ -1,2 +1,5 @@
-# We-are-the-Champions
- We are the Champions
+# The Frontend Developer Career Path
+
+# Module 3 Scrimba Bootcamp
+
+- We are the champions
