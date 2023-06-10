@@ -1,18 +1,19 @@
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-// import {
-//   getDatabase,
-//   ref,
-//   onValue,
-// } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+import {
+  getDatabase,
+  ref,
+  push,
+  // onValue,
+} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
-// const appSettings = {
-//   databaseURL:
-//     "https://realtime-database-41ad1-default-rtdb.europe-west1.firebasedatabase.app",
-// };
+const appSettings = {
+  databaseURL:
+    "https://realtime-database-41ad1-default-rtdb.europe-west1.firebasedatabase.app",
+};
 
-// const app = initializeApp(appSettings);
-// const database = getDatabase(app);
-// const endorsementInDB = ref(database, "endorsement");
+const app = initializeApp(appSettings);
+const database = getDatabase(app);
+const endorsementInDB = ref(database, "endorsement");
 
 let plublishBtn = document.getElementById("publish-btn");
 let textArea = document.getElementById("text-area");
@@ -28,7 +29,8 @@ plublishBtn.addEventListener("click", () => {
   if (endorsement === "") {
     return;
   }
-
+  push(endorsementInDB, endorsement);
+  console.log(`${endorsement} add to database`);
   createEndorsement(endorsement);
   clearTextArea();
 });
