@@ -3,7 +3,8 @@ import {
   getDatabase,
   ref,
   push,
-  // onValue,
+  onValue,
+  remove,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 const appSettings = {
@@ -19,28 +20,47 @@ let plublishBtn = document.getElementById("publish-btn");
 let textArea = document.getElementById("text-area");
 let endorsementList = document.getElementById("endorsement-list");
 
-// onValue(endorsementInDB, (snapchot) => {
-//   console.log(snapchot.val());
-// });
-
 plublishBtn.addEventListener("click", () => {
   let endorsement = textArea.value;
-  console.log(endorsement);
   if (endorsement === "") {
     return;
   }
   push(endorsementInDB, endorsement);
-  console.log(`${endorsement} add to database`);
-  createEndorsement(endorsement);
+
   clearTextArea();
+});
+
+onValue(endorsementInDB, (snapshot) => {
+  let itemsArray = Object.entries(snapshot.val());
+
+  console.log(snapshot.val());
+  clearListEndorsement();
+  for (let i = 0; i < itemsArray.length; i++) {
+    let currentItem = itemsArray[i];
+    let currentItemID = currentItem[0];
+    let currentItemValue = currentItem[1];
+    appendEndorsement(currentItem);
+  }
 });
 
 function clearTextArea() {
   textArea.value = "";
 }
 
-function createEndorsement(value) {
+function clearListEndorsement() {
+  endorsementList.innerHTML = "";
+}
+
+function appendEndorsement(value) {
+  let itemID = value[0];
+  let itemValue = value[1];
   let paraEndorsement = document.createElement("p");
+  paraEndorsement.classList.add("style");
   endorsementList.append(paraEndorsement);
-  paraEndorsement.innerHTML = `${value}`;
+  paraEndorsement.innerHTML = `${itemValue}`;
+
+  paraEndorsement.addEventListener("click", () => {
+    let exactLocationInDB = ref(database, `endorsement/${itemID}`);
+    remove(exactLocationInDB);
+  });
 }
