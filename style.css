@@ -2,7 +2,6 @@ html,
 body {
   background-color: #1b1924;
   min-width: 320px;
-  max-width: 420px;
   font-family: "Josefin Sans", sans-serif;
   margin: 0 auto;
   padding: 0;
@@ -16,9 +15,8 @@ body {
 }
 
 img {
-  margin: 50px auto 20px;
+  margin: 3.125em auto 1.25em;
   height: 90px;
-  width: 90px;
 }
 
 h1,
@@ -27,30 +25,30 @@ h2 {
 }
 
 textarea {
-  font-size: 18px;
+  font-size: 1.125rem;
   outline: none;
   font-family: "Inter", sans-serif;
-  margin: 15px auto;
+  margin: 1em auto;
   border: 1px solid #444059;
-  border-radius: 5px;
+  border-radius: 0.33em;
   height: 130px;
   width: 78%;
   background-color: #444059;
   word-wrap: break-word;
-  padding: 10px;
+  padding: 0.7em;
   color: white;
 }
 
 button {
   font-family: "Josefin Sans", sans-serif;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: bold;
   border: none;
   border-radius: 5px;
   width: 83%;
   background-color: #28a9f1;
   color: #04131c;
-  padding: 12px;
+  padding: 0.75em;
   margin: 0 auto 25px;
 }
 
@@ -67,7 +65,7 @@ button:hover {
 
 .style {
   line-break: normal;
-  font-size: 18px;
+  font-size: 1.25rem;
   display: flex;
   justify-content: start;
   align-items: start;
@@ -79,4 +77,37 @@ button:hover {
 .style:hover {
   cursor: pointer;
   background-color: #d8b0b0;
+}
+
+@media (min-width: 768px) {
+  textarea {
+    width: 70%;
+    height: 180px;
+  }
+  button {
+    width: 73%;
+  }
+  #endorsement-list {
+    width: 70%;
+  }
+}
+
+@media (min-width: 1024px) {
+  textarea {
+    width: 50%;
+    height: 180px;
+  }
+  button {
+    width: 52%;
+  }
+}
+
+@media (min-width: 1280px) {
+  textarea {
+    width: 45%;
+    height: 180px;
+  }
+  button {
+    width: 52%;
+  }
 }
